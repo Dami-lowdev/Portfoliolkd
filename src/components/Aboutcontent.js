@@ -2,7 +2,7 @@ import "./AboutContentStyle.css";
 
 import React from "react";
 import { Link } from "react-router-dom";
-import React1 from "../assets/react1.jpg";
+import React1 from "../assets/LANING Damien picture.jpg";
 import React2 from "../assets/react2.webp";
 
 const AboutContent = () => {
@@ -11,8 +11,8 @@ const AboutContent = () => {
       <div className="left">
         <h1>Who Am I?</h1>
         <p>
-          Im a react font-end developer. I create responsive secure websites for
-          my clients.
+        Bienvenue dans l'univers fascinant de l'informatique, où ma passion et ma curiosité se rencontrent pour créer des opportunités infinies. 
+        Spécialisé dans le monde dynamique des réseaux, je suis constamment assoiffé de nouvelles connaissances et passionné par les technologies émergentes. Mon souhait de contribuer à l'évolution de votre équipe est motivé par la recherche constante d'excellence et la volonté de perfectionner mes compétences. 
         </p>
         <Link to="/contact">
           <button className="btn">Contact</button>
