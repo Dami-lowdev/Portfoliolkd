@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HeroingProj from '../components/HeroingProj';
+import AboutContent from '../components/Aboutcontent';
 
 
 const About = () => {
@@ -9,6 +10,7 @@ const About = () => {
     <div>
       <Navbar/>
       <HeroingProj heading="ABOUT." text="I'm Cybersecurity Student" />
+      <AboutContent/>
 
 
 
