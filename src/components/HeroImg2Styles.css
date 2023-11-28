@@ -7,7 +7,7 @@
 
 .hero-img::before {
   content: "";
-  background: url("C:\Users\damsl\Desktop\Portfolio\myapp\src\assets\backgoundapropos de moi.jpg");
+  background: url("../assets/backgoundapropos de moi.jpg");
   background-size: cover;
   background-position: center top;
   height: 100%;
