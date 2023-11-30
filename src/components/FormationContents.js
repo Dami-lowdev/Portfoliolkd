@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { FaTimes } from "react-icons/fa";
+import React,{useState,NavLink} from 'react'
+import { FaTimes} from "react-icons/fa";
 //import "./FormationContentsStyles.css";
 const FormationContents = () => {
     const [modalOpen, setModalOpen]= useState(false);
@@ -13,6 +13,15 @@ const FormationContents = () => {
         setModalOpen(false);
         setSelectedCard(null);
       };
+      const creditcisco = () => {
+        // Utilisez window.location.href pour rediriger vers le lien LinkedIn
+        window.location.href = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url';
+      };
+      const creditazure = () => {
+        // Utilisez window.location.href pour rediriger vers le lien LinkedIn
+        window.location.href = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
+      };
+
     const [softskills] = useState([
        {
         title: 'ESAIP |Angers, France',
@@ -39,11 +48,23 @@ const FormationContents = () => {
     const [hardskills] = useState([
         {
          title: 'CCNA : Introduction to Networks',
-         text: ` Certification délivrée par Cisco`
+         text: ` Certification délivrée par Cisco`,
+         details1: (
+            <span>
+              <button onClick={creditcisco}>Cisco</button>
+            </span>
+          ),
         },
+
         {
          title: 'Azure AI 900',
-         text: ` Certification délivrée par Microsoft .`
+         text: ` Certification délivrée par Microsoft .`,
+          details1: (
+            <span>
+              <button onClick={creditazure}>Azure AI900</button>
+            </span>
+          ),
+         
         },
         
      ])
