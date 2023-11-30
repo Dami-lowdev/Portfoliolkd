@@ -94,17 +94,3 @@ section {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.cards{
-    display: flex;
-    flex-wrap:wrap ;
-    justify-content: space-between;
-  }
-  .hardskills{display: block;}
-  .softskills{
-    margin-bottom: 4rem;
-    display: block;
-  }
-  .card {
-    margin-bottom: 2rem;
-  }
-  

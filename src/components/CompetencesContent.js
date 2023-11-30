@@ -1,15 +1,31 @@
 import React,{useState} from 'react'
-
+import { FaTimes } from "react-icons/fa";
 
 const CompetencesContent = () => {
+    const [modalOpen, setModalOpen]= useState(false);
+    const [selectedCard, setSelectedCard] = useState(null);
+    const handleDetailsClick = (title) => {
+        setSelectedCard(title);
+        setModalOpen(true);
+      };
+      
+      const closeModal = () => {
+        setModalOpen(false);
+        setSelectedCard(null);
+      };
+      
     const [softskills] = useState([
         {
          title: 'ADECCO.IESEG |Paris, France',
-         text: ` Intérimaire | Technicien Informatique(09/2023)`
+         text: ` Intérimaire | Technicien Informatique(09/2023)`,
+         details1: `-deploiement de 150 postes informatiques sur le campus de paris `,
+         details2: `-installation d'Operating System grace à manage engine OS deployer `,
         },
         {
          title: 'INVEST LOGISTIC SARL |Douala, Cameroun',
-         text: ` Stagiaire (07/2021 - 09/2021) `
+         text: ` Stagiaire (07/2021 - 09/2021) `,
+         details1: ` -gestion et placement de produits sur un site d'E-Commerce`,
+         details2: ` -prospection et proposition de solutions informatiques`
         },
        
      ])
@@ -61,10 +77,19 @@ const CompetencesContent = () => {
                          </h3>
                          <p>
                             {scard.text}
-                            <button className='btn'>
+                            <button className='btn' onClick={() => handleDetailsClick(scard.title)} >
                              details
                             </button>
                          </p>
+                         {modalOpen && selectedCard === scard.title && (
+      <div className="modal">
+        {scard.details1}
+        <p>{scard.details2}</p>
+        <button className="close-btn" onClick={() => setModalOpen(false)}>
+        <FaTimes size={20} style={{ color: "blue" }} /> 
+        </button>
+      </div>
+    )}
                      </div>
                          ))
                          
