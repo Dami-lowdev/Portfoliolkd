@@ -55,7 +55,7 @@ const FormationContents = () => {
                     </div>
                     <div className='hardskills'>
 
-                    <div className='textleft'> <h1>Certification</h1></div>
+                    <div className='textleft'> <h1>Certifications</h1></div>
                     {
                         hardskills.map((hcard,i) =>(
 
