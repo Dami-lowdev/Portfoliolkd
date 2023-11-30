@@ -62,7 +62,7 @@ const Footer = () => {
         <div className="right">
           <h4>Damien Portfolio</h4>
           <p>
-            N'hésitez pas à me contacter afin que nous discutions de nouveau projets
+            N'hésitez pas à me contacter afin que nous discutons de nouveaux projets
             et challenges.
           </p>
           

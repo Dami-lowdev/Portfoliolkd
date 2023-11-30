@@ -4,9 +4,10 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Project from "./routes/Project";
 import Contact from "./routes/Contact";
-
-
+import Formation from "./routes/Formation"
 import { Route, Routes } from "react-router-dom";
+import Competences from "./routes/Competences";
+
 
 function App() {
   return (
@@ -14,8 +15,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Project />} />
+        <Route path="/formation" element={<Formation/>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/competences" element={<Competences/>} />
+
+
       </Routes>
     </>
   );

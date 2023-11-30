@@ -45,3 +45,17 @@ ul {
   color: #fff;
   transition: 0.3s;
 }
+
+.cards{
+  display: flex;
+  flex-wrap:wrap ;
+  justify-content: space-between;
+}
+.hardskills{display: block;}
+.softskills{
+  margin-bottom: 4rem;
+  display: block;
+}
+.card {
+  margin-bottom: 2rem;
+}

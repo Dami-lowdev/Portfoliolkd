@@ -14,7 +14,7 @@ const WorkCard = (props) => {
           <NavLink to={props.view} className="btn">
             View
           </NavLink>
-          <NavLink to="https://github.com/Dami-lowdev/Interactive-Web-Apk-Project" className="btn">
+          <NavLink to="url.com" className="btn">
             Source
           </NavLink>
         </div>
