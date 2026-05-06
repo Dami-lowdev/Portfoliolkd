@@ -14,9 +14,9 @@ const WorkCard = (props) => {
           <NavLink to={props.view} className="btn">
             View
           </NavLink>
-          <Link to="github.com" className="btn">
+          <a href={props.source} target="_blank" rel="noreferrer" className="btn">
             Source
-          </Link>
+          </a>
         </div>
       </div>
     </div>

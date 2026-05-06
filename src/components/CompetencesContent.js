@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react';
 import { FaTimes } from "react-icons/fa";
+import "./CompetencesContentsStyles.css";
 
 const CompetencesContent = () => {
     const [modalOpen, setModalOpen]= useState(false);

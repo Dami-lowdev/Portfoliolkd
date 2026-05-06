@@ -1,13 +1,14 @@
 import "./NavbarStyles.css";
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const closeMenu = () => setClick(false);
 
   const [color, setColor] = useState(false);
   const changeColor = () => {
@@ -22,28 +23,27 @@ const Navbar = () => {
 
   return (
     <div className={color ? "header header-bg" : "header"}>
-      <Link to="/">
-        <h1>PortfolioDKL</h1>
+      <Link to="/" onClick={closeMenu}>
+        <h1>Damien Laning</h1>
       </Link>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/" end className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Home</NavLink>
         </li>
         <li>
-          <Link to="/project">Project</Link>
+          <NavLink to="/about" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>About</NavLink>
         </li>
         <li>
-          <Link to="/formation">Formation</Link>
+          <NavLink to="/formation" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Formation</NavLink>
         </li>
         <li>
-          <Link to="/competences">Competences</Link>
-        </li>
-        
-        <li>
-          <Link to="/about">About</Link>
+          <NavLink to="/competences" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Compétences</NavLink>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink to="/project" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Projets</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Contact</NavLink>
         </li>
       </ul>
       <div className="hamburger" onClick={handleClick}>

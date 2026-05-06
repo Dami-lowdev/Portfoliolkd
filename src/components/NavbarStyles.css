@@ -23,6 +23,17 @@
 .nav-menu li a {
   font-size: 1.2rem;
   font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-menu li a:hover {
+  color: #818cf8;
+}
+
+.nav-active {
+  color: #818cf8 !important;
+  border-bottom: 2px solid #818cf8;
+  padding-bottom: 2px;
 }
 
 .hamburger {

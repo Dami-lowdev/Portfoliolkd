@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #000;
+  background: #0f0f0f;
 }
 
 h1,
@@ -27,21 +27,22 @@ ul {
   padding: 12px 32px;
   font-size: 1rem;
   text-transform: uppercase;
-  background: rgb(19, 15, 248);
-  color: #222;
-  border: 1px solid #fff;
+  background: #4f46e5;
+  color: #fff;
+  border: 1px solid #6366f1;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .btn-light {
-  /* background: rgba(255, 255, 255, 0.2); */
   background: transparent;
   color: #fff;
+  border: 1px solid #fff;
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #6366f1;
   color: #fff;
   transition: 0.3s;
 }

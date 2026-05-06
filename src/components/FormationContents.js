@@ -1,6 +1,6 @@
-import React,{useState,NavLink} from 'react'
-import { FaTimes} from "react-icons/fa";
-//import "./FormationContentsStyles.css";
+import React, { useState } from 'react';
+import { FaTimes } from "react-icons/fa";
+import "./FormationContentsStyles.css";
 const FormationContents = () => {
     const [modalOpen, setModalOpen]= useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
