@@ -1,28 +1,74 @@
 import pro1 from "../assets/tultourGuidebanner.png";
 import pro2 from "../assets/project2.png";
 import pro3 from "../assets/schoolManagement.jpg";
+import pro4 from "../assets/Projectbackground.png";
+import pro5 from "../assets/brainkey.png";
+import pro6 from "../assets/project1.png";
 
 const ProjectCardData = [
   {
     imgsrc: pro1,
-    title: “CAMPUS NAVIGATION”,
-    text: “l'Objectif a été pour nous d'améliorer la navigation sur le campus pour les étudiants de différentes sphères (internationaux, locaux, handicapés). Nous avons utilisé plusieurs outils tels que: des extensions moodle, suite Microsoft, Miro, Google Forms”,
-    view: “/project”,
-    source: “https://github.com/Dami-lowdev”,
+    title: "Campus Navigation",
+    text: "Amelioration de la navigation sur le campus pour les etudiants internationaux, locaux et handicapes. Outils : Moodle, suite Microsoft, Miro, Google Forms.",
+    view: "/project",
+    source: "https://github.com/Dami-lowdev",
+    category: "Academique",
   },
   {
     imgsrc: pro2,
-    title: “LMS/Course Website Design”,
-    text: “Podcast Thriving Facebook community and top-ranked, Amy inspires a grounded, tangible and self-affirming sense of “Wow! I really can do this” for over 100,000 online entrepreneurs. Best-selling marketing courses”,
-    view: “https://www.youtube.com/watch?v=P8YuWEkTeuE”,
-    source: “https://github.com/Dami-lowdev”,
+    title: "LMS / Course Website Design",
+    text: "Conception d'un site de cours en ligne avec gestion de contenu et parcours d'apprentissage structures.",
+    view: "https://www.youtube.com/watch?v=P8YuWEkTeuE",
+    source: "https://github.com/Dami-lowdev",
+    category: "Academique",
   },
   {
     imgsrc: pro3,
-    title: “Student Management”,
-    text: “ce projet visait à créer une plateforme sécurisée de gestion d'étudiants. pour la réaliser nous avons utilisés Le Framework Angular pour implémenter la sécurité (Springboot security tools) qui utilises des langages comme le java, HTML/CSS”,
-    view: “https://github.com/Dami-lowdev/Interactive-Web-Apk-Project”,
-    source: “https://github.com/Dami-lowdev/Interactive-Web-Apk-Project”,
+    title: "Student Management",
+    text: "Plateforme securisee de gestion d'etudiants developpee avec Angular et Spring Boot Security. Langages : Java, HTML/CSS.",
+    view: "https://github.com/Dami-lowdev/Interactive-Web-Apk-Project",
+    source: "https://github.com/Dami-lowdev/Interactive-Web-Apk-Project",
+    category: "Academique",
+  },
+  {
+    imgsrc: pro4,
+    title: "Analyse Forensique",
+    text: "Investigation numerique sur un systeme compromis : collecte de preuves, analyse de logs, reconstruction de la chronologie d'une attaque.",
+    view: "#",
+    source: "https://github.com/Dami-lowdev",
+    category: "Forensics",
+  },
+  {
+    imgsrc: pro5,
+    title: "CTF - Challenge Forensics",
+    text: "Participation a des challenges Capture The Flag axes sur l'analyse memoire, les fichiers corrompus et la steganographie.",
+    view: "#",
+    source: "https://github.com/Dami-lowdev",
+    category: "Forensics",
+  },
+  {
+    imgsrc: pro6,
+    title: "Pipeline CI/CD Securise",
+    text: "Mise en place d'un pipeline DevSecOps integrant des outils d'analyse statique (SAST), de detection de secrets et de tests de securite automatises.",
+    view: "#",
+    source: "https://github.com/Dami-lowdev",
+    category: "DevSecOps",
+  },
+  {
+    imgsrc: pro4,
+    title: "Test d'Intrusion Web",
+    text: "Realisation d'un pentest sur une application web : reconnaissance, exploitation de vulnerabilites (XSS, SQLi), rapport de remediation.",
+    view: "#",
+    source: "https://github.com/Dami-lowdev",
+    category: "Pentest",
+  },
+  {
+    imgsrc: pro5,
+    title: "Audit Reseau",
+    text: "Audit de securite d'un reseau local : scan de ports, identification de services vulnerables, recommandations de durcissement.",
+    view: "#",
+    source: "https://github.com/Dami-lowdev",
+    category: "Pentest",
   },
 ];
 
