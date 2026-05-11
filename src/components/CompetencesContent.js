@@ -10,11 +10,6 @@ const CompetencesContent = () => {
         setModalOpen(true);
       };
       
-      const closeModal = () => {
-        setModalOpen(false);
-        setSelectedCard(null);
-      };
-      
     const [softskills] = useState([
         {
          title: 'ADECCO.IESEG |Paris, France',

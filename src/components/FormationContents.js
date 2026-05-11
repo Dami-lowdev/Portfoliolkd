@@ -9,10 +9,6 @@ const FormationContents = () => {
         setModalOpen(true);
       };
       
-      const closeModal = () => {
-        setModalOpen(false);
-        setSelectedCard(null);
-      };
       const creditcisco = () => {
         // Utilisez window.location.href pour rediriger vers le lien LinkedIn
         window.location.href = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url';

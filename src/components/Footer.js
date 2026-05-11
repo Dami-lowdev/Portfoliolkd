@@ -6,7 +6,6 @@ import {
   FaHome,
   FaPhone,
   FaMailBulk,
-  FaFacebook,
   FaTwitter,
   FaLinkedin,
   FaGithub,
