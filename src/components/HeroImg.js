@@ -4,7 +4,6 @@ import React from "react";
 
 import IntroImg from "../assets/backgoundapropos de moi.jpg";
 import { Link } from "react-router-dom";
-
 const HeroImg = () => {
   return (
     <div className="hero">
@@ -29,3 +28,4 @@ const HeroImg = () => {
 };
 
 export default HeroImg;
+
