@@ -9,13 +9,20 @@ const AboutContent = () => {
   return (
     <div className="about">
       <div className="left">
-        <h1>Qui Suis je ?</h1>
+        <h1>Qui suis-je ?</h1>
         <p>
-        Bienvenue dans l'univers fascinant de l'informatique, où ma passion et ma curiosité se rencontrent pour créer des opportunités infinies. 
-        Spécialisé dans le monde dynamique des réseaux, je suis constamment assoiffé de nouvelles connaissances et passionné par les technologies émergentes. Mon souhait de contribuer à l'évolution de votre équipe est motivé par la recherche constante d'excellence et la volonté de perfectionner mes compétences.
+          Etudiant ingenieur en cybersecurite a l'ESAIP Angers (cycle bac+5),
+          je recherche un <strong>stage de fin d'etudes</strong> dans les domaines
+          du Pentest, de la Forensique numerique ou du DevSecOps.
+        </p>
+        <p>
+          Mon parcours m'a conduit de Douala a Angers, avec une experience
+          Erasmus a l'Universite Technique de Lodz (Pologne). Curieux et
+          rigoureux, j'aime aborder la securite comme un etat d'esprit autant
+          que comme une discipline technique.
         </p>
         <Link to="/contact">
-          <button className="btn">Contact</button>
+          <button className="btn">Me contacter</button>
         </Link>
       </div>
 

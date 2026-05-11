@@ -12,14 +12,15 @@ const HeroImg = () => {
         <img className="into-img" src={IntroImg} alt="IntroImg" />
       </div>
       <div className="content">
-        <p>Hi I'm Damien Laning it's a pleasure to meet you here!</p>
-        <h1>Cybersecurity Student.</h1>
-        <div>
+        <p className="hero-subtitle">Salut, je suis Damien Laning</p>
+        <h1 className="hero-title">Etudiant Ingenieur Cybersecurite</h1>
+        <p className="hero-spec">Pentest · Forensics · DevSecOps</p>
+        <div className="hero-btns">
           <Link to="/project" className="btn">
-            Projects
+            Mes Projets
           </Link>
           <Link to="/contact" className="btn btn-light">
-            Contact
+            Me Contacter
           </Link>
         </div>
       </div>

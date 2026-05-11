@@ -27,35 +27,95 @@
   width: 100%;
 }
 
+/* --- Keyframes --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50%       { border-color: #818cf8; }
+}
+
+/* --- Layout --- */
 .hero .content {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   text-align: center;
+  width: 90%;
 }
 
-.hero .content h1 {
-  font-size: 4rem;
-  padding: 0.6rem 0 1.5rem;
-}
-
-.hero .content p {
-  font-size: 1.4rem;
-  font-weight: 200;
+/* --- Subtitle (fade-in 0s) --- */
+.hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: #a5b4fc;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.2s;
 }
 
-.content .btn {
-  margin: 1rem 0.2rem;
+/* --- Main title : typewriter --- */
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0.6rem auto 0.4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 3px solid #818cf8;
+  animation:
+    typing 1.4s steps(36, end) forwards,
+    blink  0.75s step-end 8;
+  animation-delay: 0.8s, 0.8s;
+}
+
+/* --- Specialties (fade-in apres le titre) --- */
+.hero-spec {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #818cf8;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 2.4s;
+}
+
+/* --- Boutons (fade-in en dernier) --- */
+.hero-btns {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 2.8s;
+}
+
+.hero-btns .btn {
+  margin: 0.5rem 0.4rem;
 }
 
 @media screen and (max-width: 640px) {
-  .hero .content h1 {
-    font-size: 3rem;
+  .hero-title {
+    font-size: 2rem;
+    white-space: normal;
+    width: auto;
+    border-right: none;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.8s;
   }
 
-  .hero .content p {
-    font-size: 1.4rem;
+  .hero-subtitle {
+    font-size: 0.9rem;
   }
 }
