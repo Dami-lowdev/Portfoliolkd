@@ -1,9 +1,11 @@
 import pro1 from "../assets/tultourGuidebanner.png";
 import pro2 from "../assets/project2.png";
 import pro3 from "../assets/schoolManagement.jpg";
-import pro4 from "../assets/Projectbackground.png";
-import pro5 from "../assets/brainkey.png";
 import pro6 from "../assets/project1.png";
+
+import imgForensic from "../assets/forensicimage.jpg";
+import imgPentest  from "../assets/pentestimage.jpg";
+import imgAudit    from "../assets/auditsiimage.jpg";
 
 const ProjectCardData = [
   {
@@ -31,7 +33,7 @@ const ProjectCardData = [
     category: "Academique",
   },
   {
-    imgsrc: pro4,
+    imgsrc: imgForensic,
     title: "Analyse Forensique",
     text: "Investigation numerique sur un systeme compromis : collecte de preuves, analyse de logs, reconstruction de la chronologie d'une attaque.",
     view: "#",
@@ -39,7 +41,7 @@ const ProjectCardData = [
     category: "Forensics",
   },
   {
-    imgsrc: pro5,
+    imgsrc: imgForensic,
     title: "CTF - Challenge Forensics",
     text: "Participation a des challenges Capture The Flag axes sur l'analyse memoire, les fichiers corrompus et la steganographie.",
     view: "#",
@@ -55,7 +57,7 @@ const ProjectCardData = [
     category: "DevSecOps",
   },
   {
-    imgsrc: pro4,
+    imgsrc: imgPentest,
     title: "Test d'Intrusion Web",
     text: "Realisation d'un pentest sur une application web : reconnaissance, exploitation de vulnerabilites (XSS, SQLi), rapport de remediation.",
     view: "#",
@@ -63,7 +65,7 @@ const ProjectCardData = [
     category: "Pentest",
   },
   {
-    imgsrc: pro5,
+    imgsrc: imgAudit,
     title: "Audit Reseau",
     text: "Audit de securite d'un reseau local : scan de ports, identification de services vulnerables, recommandations de durcissement.",
     view: "#",
