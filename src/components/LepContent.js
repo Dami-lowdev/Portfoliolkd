@@ -1,10 +1,16 @@
 import React from 'react';
 import "./LepContentStyles.css";
 
+import LogoBDI   from "../assets/logoBDI.png";
+import LogoAdeca from "../assets/logo adeca.png";
+import EventAdeca from "../assets/evénements adeca_ association dames de coeur.jpeg";
+
 const associations = [
     {
+        logo: LogoBDI,
         name: 'Bureau des Internationaux (BDI)',
         subtitle: 'ESAIP Angers · Membre actif · 2023 – 2024',
+        eventImg: null,
         sections: [
             {
                 icon: '🏛',
@@ -24,8 +30,11 @@ const associations = [
         ],
     },
     {
+        logo: LogoAdeca,
         name: 'ADÉCA — Association des Étudiants Camerounais à Angers',
         subtitle: 'Membre actif · Pôle logistique · 2025 – présent',
+        eventImg: EventAdeca,
+        eventCaption: 'Distribution alimentaire — ADÉCA × Association Dames de Cœur',
         sections: [
             {
                 icon: '🏛',
@@ -61,8 +70,13 @@ const LepContent = () => {
                     {associations.map((asso, i) => (
                         <div key={i} className="lep-card">
                             <div className="lep-card-header">
-                                <h2>{asso.name}</h2>
-                                <span className="lep-badge">{asso.subtitle}</span>
+                                {asso.logo && (
+                                    <img src={asso.logo} alt={asso.name} className="lep-logo" />
+                                )}
+                                <div>
+                                    <h2>{asso.name}</h2>
+                                    <span className="lep-badge">{asso.subtitle}</span>
+                                </div>
                             </div>
                             <div className="lep-sections">
                                 {asso.sections.map((sec, j) => (
@@ -72,6 +86,12 @@ const LepContent = () => {
                                     </div>
                                 ))}
                             </div>
+                            {asso.eventImg && (
+                                <div className="lep-event-img">
+                                    <img src={asso.eventImg} alt={asso.eventCaption} />
+                                    <p className="lep-event-caption">{asso.eventCaption}</p>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

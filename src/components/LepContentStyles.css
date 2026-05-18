@@ -48,9 +48,22 @@ section {
 }
 
 .lep-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #2d2d4e;
+}
+
+.lep-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 5px;
+  flex-shrink: 0;
 }
 
 .lep-card-header h2 {
@@ -58,6 +71,28 @@ section {
   font-weight: 700;
   color: #e2e8f0;
   margin-bottom: 0.4rem;
+}
+
+.lep-event-img {
+  margin-top: 1.8rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #2d2d4e;
+}
+
+.lep-event-img img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.lep-event-caption {
+  font-size: 0.82rem;
+  color: #64748b;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-style: italic;
 }
 
 .lep-badge {
