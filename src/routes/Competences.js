@@ -9,7 +9,7 @@ const Competences = () => {
   return (
     <div>
       <Navbar />
-      <HeroImg2 heading="Competences" text="Experiences et competences." />
+      <HeroImg2 heading="Compétences" text="Techniques, humaines et transverses." />
       <CompetencesContent/>
       <Footer />
     </div>

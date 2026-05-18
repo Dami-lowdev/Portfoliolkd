@@ -1,33 +1,62 @@
 import React, { useState } from 'react';
-import { FaTimes } from "react-icons/fa";
 import "./CompetencesContentsStyles.css";
 
-import LogoGlobalID from "../assets/global id Logo.jpg";
-import LogoIESEG    from "../assets/logo Ieseg.jpg";
+import LogoCisco from "../assets/ciscologo.png";
+import LogoAzure from "../assets/AI900logo.png";
 
-const experiences = [
-    {
-        title: 'GlobalID | Lausanne, Suisse',
-        logo: LogoGlobalID,
-        text: 'Pentester — Audit sécurité outil biométrique (Août 2025 - Octobre 2025)',
-        details1: '- Réalisation d\'un White-box pentest sur le Venoscanner',
-        details2: '- Identification des vulnérabilités (failles applicatives, logs sensibles), scénarios d\'attaques (DOS, Fuzzing API, MITM), rédaction d\'un rapport de risques avec POC et recommandations correctives.',
-    },
-    {
-        title: 'ADECCO.IESEG | Paris, France',
-        logo: LogoIESEG,
-        text: 'Intérimaire — Technicien informatique (Juillet 2023 - Août 2023)',
-        details1: '- Déploiement et mise en marche de 150 postes informatiques sur le campus universitaire',
-        details2: '- Installation, configuration et assignation des systèmes d\'exploitation — assistance technique — collaboration avec une équipe de cinq techniciens.',
-    },
-];
+const CREDLY_AZURE    = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
+const CREDLY_FORTINET = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
+const CREDLY_CCNA     = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url';
+
+const VerifyBtn = ({ href, label = 'Vérifier sur Credly' }) => (
+    <a href={href} target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
+        {label}
+    </a>
+);
 
 const techskills = [
-    { title: 'Protocoles & Analyse réseau', text: 'TCP/IP, HTTP, Wireshark, Nmap, Nessus, Kali Linux' },
-    { title: 'Virtualisation & Cloud', text: 'VMware, Hyper-V, Azure' },
-    { title: 'Pare-feux & Commutateurs', text: 'Cisco, Fortinet, pfSense' },
-    { title: 'Langages & Scripting', text: 'Java, JavaScript, PowerShell, MongoDB, SQL, HTML/CSS, Android, Node.js' },
-    { title: 'Gestion de projet', text: 'Git, Trello' },
+    { title: 'Protocoles & Analyse réseau', text: 'TCP/IP, HTTP/S, DNS, Wireshark, Nmap, Nessus, Kali Linux' },
+    { title: 'Virtualisation & Cloud', text: 'VMware, Hyper-V, Azure, AWS (notions)' },
+    { title: 'Pare-feux & Commutateurs', text: 'Cisco IOS, Fortinet FortiGate, pfSense' },
+    { title: 'Langages & Scripting', text: 'Java, JavaScript, PowerShell, MongoDB, SQL, HTML/CSS, Android (Kotlin), Node.js' },
+    { title: 'Gestion de projet', text: 'Git, Trello, méthodes Agile/Scrum' },
+];
+
+const certifications = [
+    {
+        title: 'Azure AI Fundamentals (AI-900)',
+        logo: LogoAzure,
+        text: 'Certification délivrée par Microsoft',
+        action: <VerifyBtn href={CREDLY_AZURE} />,
+    },
+    {
+        title: 'Fortinet FortiGate 7.4 Operator',
+        logo: null,
+        text: 'Certification délivrée par Fortinet',
+        action: <VerifyBtn href={CREDLY_FORTINET} />,
+    },
+    {
+        title: 'CCNA : Introduction to Networks',
+        logo: LogoCisco,
+        text: 'Certification délivrée par Cisco',
+        action: <VerifyBtn href={CREDLY_CCNA} />,
+    },
+    {
+        title: 'Mooc SecNumacadémie — ANSSI',
+        logo: null,
+        text: 'Formation cybersécurité délivrée par l\'ANSSI',
+        action: (
+            <a href="/anssi-secnum.pdf" target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
+                Voir l'attestation
+            </a>
+        ),
+    },
+    {
+        title: 'Profil TryHackMe',
+        logo: null,
+        text: 'Plateforme de hacking éthique et de CTF',
+        action: <VerifyBtn href="https://tryhackme.com/p/Dami-lowdev" label="Voir le profil" />,
+    },
 ];
 
 const softskills = [
@@ -45,100 +74,86 @@ const transversales = [
     { title: 'Bénévolat', text: 'Distribution de denrées alimentaires et d\'hygiène aux Restos du Cœur.' },
 ];
 
-const CompetencesContent = () => {
-    const [activeTab, setActiveTab] = useState('experiences');
-    const [modalOpen, setModalOpen] = useState(false);
-    const [selectedCard, setSelectedCard] = useState(null);
+const filters = ['Techniques', 'Humaines', 'Transverses'];
 
-    const handleDetailsClick = (title) => {
-        setSelectedCard(title);
-        setModalOpen(true);
-    };
+const CompetencesContent = () => {
+    const [activeFilter, setActiveFilter] = useState('Techniques');
 
     return (
         <div>
             <section>
                 <div className="container">
-
-                    <div className="tabs">
-                        <button
-                            className={`tab-btn ${activeTab === 'experiences' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('experiences')}
-                        >
-                            Expériences
-                        </button>
-                        <button
-                            className={`tab-btn ${activeTab === 'competences' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('competences')}
-                        >
-                            Compétences
-                        </button>
+                    <div className="comp-filter-btns">
+                        {filters.map(f => (
+                            <button
+                                key={f}
+                                className={`comp-filter-btn ${activeFilter === f ? 'comp-filter-btn-active' : ''}`}
+                                onClick={() => setActiveFilter(f)}
+                            >
+                                {f}
+                            </button>
+                        ))}
                     </div>
 
-                    {activeTab === 'experiences' && (
-                        <div className="cards">
-                            <div className="softskills" style={{ flex: '1 1 100%' }}>
-                                {experiences.map((exp, i) => (
+                    {activeFilter === 'Techniques' && (
+                        <div>
+                            <div className="textleft"><h1>Compétences Techniques</h1></div>
+                            <div className="comp-grid">
+                                {techskills.map((s, i) => (
                                     <div key={i} className="card">
-                                        <div className="card-header">
-                                            {exp.logo && (
-                                                <img src={exp.logo} alt={exp.title} className="institution-logo" />
-                                            )}
-                                            <h3>{exp.title}</h3>
-                                        </div>
-                                        <p>
-                                            {exp.text}
-                                            <button className='btn' onClick={() => handleDetailsClick(exp.title)}>
-                                                Détails
-                                            </button>
-                                        </p>
-                                        {modalOpen && selectedCard === exp.title && (
-                                            <div className="modal">
-                                                <p>{exp.details1}</p>
-                                                <p>{exp.details2}</p>
-                                                <button className="close-btn" onClick={() => setModalOpen(false)}>
-                                                    <FaTimes size={20} style={{ color: "blue" }} />
-                                                </button>
+                                        <h3>{s.title}</h3>
+                                        <p>{s.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="textleftsub"><h1>Certifications</h1></div>
+                            <div className="comp-grid">
+                                {certifications.map((c, i) => (
+                                    <div key={i} className="card">
+                                        {c.logo ? (
+                                            <div className="card-header">
+                                                <img src={c.logo} alt={c.title} className="institution-logo" />
+                                                <h3>{c.title}</h3>
                                             </div>
+                                        ) : (
+                                            <h3>{c.title}</h3>
                                         )}
+                                        <p>{c.text}</p>
+                                        {c.action}
                                     </div>
                                 ))}
                             </div>
                         </div>
                     )}
 
-                    {activeTab === 'competences' && (
-                        <div className="cards">
-                            <div className="softskills">
-                                <div className="textleft"><h1>Compétences Techniques</h1></div>
-                                {techskills.map((skill, i) => (
+                    {activeFilter === 'Humaines' && (
+                        <div>
+                            <div className="textleft"><h1>Compétences Humaines</h1></div>
+                            <div className="comp-grid">
+                                {softskills.map((s, i) => (
                                     <div key={i} className="card">
-                                        <h3>{skill.title}</h3>
-                                        <p>{skill.text}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="hardskills">
-                                <div className="textleft"><h1>Compétences Humaines</h1></div>
-                                {softskills.map((skill, i) => (
-                                    <div key={i} className="card">
-                                        <h3>{skill.title}</h3>
-                                        <p>{skill.text}</p>
-                                    </div>
-                                ))}
-
-                                <div className="textleftsub"><h1>Compétences Transversales</h1></div>
-                                {transversales.map((skill, i) => (
-                                    <div key={i} className="card">
-                                        <h3>{skill.title}</h3>
-                                        <p>{skill.text}</p>
+                                        <h3>{s.title}</h3>
+                                        <p>{s.text}</p>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     )}
 
+                    {activeFilter === 'Transverses' && (
+                        <div>
+                            <div className="textleft"><h1>Compétences Transverses</h1></div>
+                            <div className="comp-grid">
+                                {transversales.map((s, i) => (
+                                    <div key={i} className="card">
+                                        <h3>{s.title}</h3>
+                                        <p>{s.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </section>
         </div>

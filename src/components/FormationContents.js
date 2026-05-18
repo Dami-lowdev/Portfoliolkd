@@ -4,70 +4,37 @@ import "./FormationContentsStyles.css";
 
 import LogoESAIP      from "../assets/logo_ESAIP_INGENIEUR_RVB_2016-250.jpg";
 import LogoReutlingen from "../assets/Hochschule reutlingen logo.jpg";
-import LogoCisco      from "../assets/ciscologo.png";
-import LogoAzure      from "../assets/AI900logo.png";
-
-const CREDLY_AZURE    = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
-const CREDLY_FORTINET = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
-const CREDLY_CCNA     = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url';
-
-const VerifyBtn = ({ href, label = 'Vérifier sur Credly' }) => (
-    <a href={href} target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
-        {label}
-    </a>
-);
 
 const formations = [
     {
         title: 'ESAIP | Angers, France',
         logo: LogoESAIP,
         text: 'Cycle Ingénieur | Majeur Cybersécurité (Septembre 2022 - Septembre 2026)',
-        details1: '- Cryptographie, réseaux informatiques, Linux OS, Windows OS, Active Directory',
-        details2: '- Gestion de projet, initiation à la recherche scientifique, communication, mathématiques',
+        details: [
+            {
+                subtitle: 'Compétences techniques acquises',
+                content: 'Cryptographie et PKI, réseaux informatiques (TCP/IP, routage, VPN), Linux OS et Windows OS, Active Directory & GPO, sécurité des systèmes d\'information, analyse de malwares, tests d\'intrusion applicatif et réseau.',
+            },
+            {
+                subtitle: 'Compétences humaines développées',
+                content: 'Gestion de projet (méthodes Agile/Scrum), initiation à la recherche scientifique, communication technique et vulgarisation, travail en équipe multiculturelle, présentation devant jury professionnel.',
+            },
+        ],
     },
     {
         title: 'Hochschule Reutlingen | Reutlingen, Allemagne',
         logo: LogoReutlingen,
         text: 'Computer Science — Séjour ERASMUS (Mars 2024 - Juillet 2024)',
-        details1: '- Cloud computing, génie logiciel',
-        details2: '- Business Consulting, Gestion de Projet',
-    },
-];
-
-const certifications = [
-    {
-        title: 'Azure AI Fundamentals (AI-900)',
-        logo: LogoAzure,
-        text: 'Certification délivrée par Microsoft',
-        details: <VerifyBtn href={CREDLY_AZURE} />,
-    },
-    {
-        title: 'Fortinet FortiGate 7.4 Operator',
-        logo: null,
-        text: 'Certification délivrée par Fortinet',
-        details: <VerifyBtn href={CREDLY_FORTINET} />,
-    },
-    {
-        title: 'CCNA : Introduction to Networks',
-        logo: LogoCisco,
-        text: 'Certification délivrée par Cisco',
-        details: <VerifyBtn href={CREDLY_CCNA} />,
-    },
-    {
-        title: 'Mooc SecNumacadémie — ANSSI',
-        logo: null,
-        text: 'Formation cybersécurité délivrée par l\'ANSSI',
-        details: (
-            <a href="/anssi-secnum.pdf" target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
-                Voir l'attestation
-            </a>
-        ),
-    },
-    {
-        title: 'Profil TryHackMe',
-        logo: null,
-        text: 'Plateforme de hacking éthique et de CTF',
-        details: <VerifyBtn href="https://tryhackme.com/p/Dami-lowdev" label="Voir le profil" />,
+        details: [
+            {
+                subtitle: 'Compétences techniques acquises',
+                content: 'Cloud computing (AWS/Azure), génie logiciel, architecture microservices, développement d\'applications distribuées en environnement anglophone.',
+            },
+            {
+                subtitle: 'Compétences humaines développées',
+                content: 'Adaptation à un environnement international, business consulting, gestion de projet interculturelle, ouverture à différentes approches pédagogiques européennes.',
+            },
+        ],
     },
 ];
 
@@ -84,55 +51,38 @@ const FormationContents = () => {
         <div>
             <section>
                 <div className="container">
-
-                    <div className='textleft'><h1>Formation</h1></div>
-
-                    <div className="cards">
-                        <div className='softskills'>
-                            {formations.map((scard, i) => (
-                                <div key={i} className="card">
-                                    <div className="card-header">
-                                        {scard.logo && (
-                                            <img src={scard.logo} alt={scard.title} className="institution-logo" />
-                                        )}
-                                        <h3>{scard.title}</h3>
-                                    </div>
-                                    <p>
-                                        {scard.text}
-                                        <button className='btn' onClick={() => handleDetailsClick(scard.title)}>
-                                            Détails
-                                        </button>
-                                        {modalOpen && selectedCard === scard.title && (
-                                            <div className="modal">
-                                                <p>{scard.details1}</p>
-                                                <p>{scard.details2}</p>
-                                                <button className="close-btn" onClick={() => setModalOpen(false)}>
-                                                    <FaTimes size={20} style={{ color: "blue" }} />
-                                                </button>
+                    <div className="textleft"><h1>Formation Académique</h1></div>
+                    <div style={{ maxWidth: '720px', width: '100%' }}>
+                        {formations.map((f, i) => (
+                            <div key={i} className="card">
+                                <div className="card-header">
+                                    {f.logo && (
+                                        <img src={f.logo} alt={f.title} className="institution-logo" />
+                                    )}
+                                    <h3>{f.title}</h3>
+                                </div>
+                                <p>
+                                    {f.text}
+                                    <button className="btn" onClick={() => handleDetailsClick(f.title)}>
+                                        Détails
+                                    </button>
+                                </p>
+                                {modalOpen && selectedCard === f.title && (
+                                    <div className="modal">
+                                        {f.details.map((d, j) => (
+                                            <div key={j} style={{ marginBottom: '0.8rem' }}>
+                                                <strong style={{ color: '#818cf8' }}>{d.subtitle}</strong>
+                                                <p style={{ marginTop: '0.3rem' }}>{d.content}</p>
                                             </div>
-                                        )}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className='hardskills'>
-                            <div className='textleft'><h1>Certifications</h1></div>
-                            {certifications.map((hcard, i) => (
-                                <div key={i} className="card">
-                                    <div className="card-header">
-                                        {hcard.logo && (
-                                            <img src={hcard.logo} alt={hcard.title} className="institution-logo" />
-                                        )}
-                                        <h3>{hcard.title}</h3>
+                                        ))}
+                                        <button className="close-btn" onClick={() => setModalOpen(false)}>
+                                            <FaTimes size={20} style={{ color: "blue" }} />
+                                        </button>
                                     </div>
-                                    <p>{hcard.text}</p>
-                                    {hcard.details}
-                                </div>
-                            ))}
-                        </div>
+                                )}
+                            </div>
+                        ))}
                     </div>
-
                 </div>
             </section>
         </div>

@@ -4,6 +4,7 @@ import Home from "./routes/Home";
 import Project from "./routes/Project";
 import Contact from "./routes/Contact";
 import Formation from "./routes/Formation";
+import Experience from "./routes/Experience";
 import { Route, Routes } from "react-router-dom";
 import Competences from "./routes/Competences";
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/formation" element={<Formation/>} />
+        <Route path="/experience" element={<Experience/>} />
         <Route path="/competences" element={<Competences/>} />
         <Route path="/project" element={<Project />} />
         <Route path="/contact" element={<Contact />} />

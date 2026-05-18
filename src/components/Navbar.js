@@ -34,6 +34,9 @@ const Navbar = () => {
           <NavLink to="/formation" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Formation</NavLink>
         </li>
         <li>
+          <NavLink to="/experience" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Expérience</NavLink>
+        </li>
+        <li>
           <NavLink to="/competences" className={({ isActive }) => isActive ? "nav-active" : ""} onClick={closeMenu}>Compétences</NavLink>
         </li>
         <li>

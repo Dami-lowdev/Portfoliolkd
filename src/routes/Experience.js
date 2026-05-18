@@ -2,18 +2,17 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HeroImg2 from "../components/HeroImg2";
-import FormationContents from "../components/FormationContents"
+import ExperienceContent from "../components/ExperienceContent";
 
-
-const Formation = () => {
+const Experience = () => {
   return (
     <div>
       <Navbar />
-      <HeroImg2 heading="Formation" text="Mon parcours académique." />
-      <FormationContents />
+      <HeroImg2 heading="Expériences" text="Mon parcours professionnel." />
+      <ExperienceContent />
       <Footer />
     </div>
   );
 };
 
-export default Formation;
+export default Experience;
