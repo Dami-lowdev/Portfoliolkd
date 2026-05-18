@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import { FaTimes } from "react-icons/fa";
 import "./FormationContentsStyles.css";
 
+const CREDLY_AZURE    = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
+const CREDLY_FORTINET = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
+const CREDLY_CCNA     = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url';
+
+const VerifyBtn = ({ href, label = 'Vérifier sur Credly' }) => (
+    <a href={href} target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
+        {label}
+    </a>
+);
+
 const FormationContents = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
+
     const handleDetailsClick = (title) => {
         setSelectedCard(title);
         setModalOpen(true);
     };
 
-    const creditTryHackMe = () => { window.location.href = 'https://tryhackme.com/p/Dami-lowdev'; };
-    const creditcisco = () => { window.location.href = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url'; };
-    const creditazure = () => { window.location.href = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url'; };
-
-    const [formations] = useState([
+    const formations = [
         {
             title: 'ESAIP | Angers, France',
             text: 'Cycle Ingénieur | Majeur Cybersécurité (Septembre 2022 - Septembre 2026)',
@@ -27,40 +34,39 @@ const FormationContents = () => {
             details1: '- Cloud computing, génie logiciel',
             details2: '- Business Consulting, Gestion de Projet',
         },
-    ]);
+    ];
 
-    const [certifications] = useState([
+    const certifications = [
         {
-            title: 'FORTINET Certified Associate Cybersecurity',
-            text: 'Certification délivrée par Fortinet',
-            details1: <span><button onClick={() => window.location.href = 'https://www.fortinet.com'}>Voir la certification</button></span>,
+            title: 'Azure AI Fundamentals (AI-900)',
+            text: 'Certification délivrée par Microsoft',
+            details: <VerifyBtn href={CREDLY_AZURE} />,
         },
         {
-            title: 'FORTINET Certified Fundamentals Cybersecurity',
+            title: 'Fortinet FortiGate 7.4 Operator',
             text: 'Certification délivrée par Fortinet',
-            details1: <span><button onClick={() => window.location.href = 'https://www.fortinet.com'}>Voir la certification</button></span>,
+            details: <VerifyBtn href={CREDLY_FORTINET} />,
         },
         {
             title: 'CCNA : Introduction to Networks',
             text: 'Certification délivrée par Cisco',
-            details1: <span><button onClick={creditcisco}>Voir sur Credly</button></span>,
+            details: <VerifyBtn href={CREDLY_CCNA} />,
         },
         {
-            title: 'Azure AI Fundamentals (AI-900)',
-            text: 'Certification délivrée par Microsoft',
-            details1: <span><button onClick={creditazure}>Voir sur Credly</button></span>,
-        },
-        {
-            title: 'Mooc SecNumacadémie',
-            text: 'Formation cybersécurité délivrée par l\'ANSSI',
-            details1: <span>Sécurité des systèmes d'information — référentiel ANSSI</span>,
+            title: 'Mooc SecNumacadémie — ANSSI',
+            text: 'Formation cybersécurité délivrée par l\'ANSSI (Agence Nationale de la Sécurité des Systèmes d\'Information)',
+            details: (
+                <a href="/anssi-secnum.pdf" target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
+                    Voir l'attestation
+                </a>
+            ),
         },
         {
             title: 'Profil TryHackMe',
             text: 'Plateforme de hacking éthique et de CTF',
-            details1: <span><button onClick={creditTryHackMe}>Voir le profil</button></span>,
+            details: <VerifyBtn href="https://tryhackme.com/p/Dami-lowdev" label="Voir le profil" />,
         },
-    ]);
+    ];
 
     return (
         <div>
@@ -81,7 +87,7 @@ const FormationContents = () => {
                                         </button>
                                         {modalOpen && selectedCard === scard.title && (
                                             <div className="modal">
-                                                {scard.details1}
+                                                <p>{scard.details1}</p>
                                                 <p>{scard.details2}</p>
                                                 <button className="close-btn" onClick={() => setModalOpen(false)}>
                                                     <FaTimes size={20} style={{ color: "blue" }} />
@@ -98,20 +104,8 @@ const FormationContents = () => {
                             {certifications.map((hcard, i) => (
                                 <div key={i} className="card">
                                     <h3>{hcard.title}</h3>
-                                    <p>
-                                        {hcard.text}
-                                        <button className='btn' onClick={() => handleDetailsClick(hcard.title)}>
-                                            Détails
-                                        </button>
-                                        {modalOpen && selectedCard === hcard.title && (
-                                            <div className="modal">
-                                                {hcard.details1}
-                                                <button className="close-btn" onClick={() => setModalOpen(false)}>
-                                                    <FaTimes size={20} style={{ color: "blue" }} />
-                                                </button>
-                                            </div>
-                                        )}
-                                    </p>
+                                    <p>{hcard.text}</p>
+                                    {hcard.details}
                                 </div>
                             ))}
                         </div>

@@ -22,8 +22,10 @@ const Footer = () => {
     window.location.href = 'https://github.com/Dami-lowdev';
   };
   const TelechargerCV = () => {
-    // Utilisez window.location.href pour rediriger vers le lien Github
-    window.location.href = 'https://1drv.ms/b/s!Au28sXDAsI6JiBrTKTVGszWbVKZq?e=CXG0bk';
+    const link = document.createElement('a');
+    link.href = '/cv-damien-laning.pdf';
+    link.download = 'CV_Damien_Laning_Keubou.pdf';
+    link.click();
   };
 
 
