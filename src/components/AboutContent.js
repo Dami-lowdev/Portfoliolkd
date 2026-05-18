@@ -2,7 +2,7 @@ import "./AboutContentStyles.css";
 
 import React from "react";
 import { Link } from "react-router-dom";
-import React1 from "../assets/LANING Damien picture.jpg";
+import React1 from "../assets/photo de damien.jpeg";
 import React2 from "../assets/brainkey.png";
 
 const AboutContent = () => {
