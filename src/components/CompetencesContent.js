@@ -3,135 +3,98 @@ import { FaTimes } from "react-icons/fa";
 import "./CompetencesContentsStyles.css";
 
 const CompetencesContent = () => {
-    const [modalOpen, setModalOpen]= useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
     const handleDetailsClick = (title) => {
         setSelectedCard(title);
         setModalOpen(true);
-      };
-      
-    const [softskills] = useState([
-        {
-         title: 'ADECCO.IESEG |Paris, France',
-         text: ` Intérimaire | Technicien Informatique(09/2023)`,
-         details1: `-deploiement de 150 postes informatiques sur le campus de paris `,
-         details2: `-installation d'Operating System grace à manage engine OS deployer `,
-        },
-        {
-         title: 'INVEST LOGISTIC SARL |Douala, Cameroun',
-         text: ` Stagiaire (07/2021 - 09/2021) `,
-         details1: ` -gestion et placement de produits sur un site d'E-Commerce`,
-         details2: ` -prospection et proposition de solutions informatiques`
-        },
-       
-     ])
-     const [hardskills] = useState([
-         {
-          title: 'Adaptabilité & Apprentissage Continu',
-          text: `compétence que je développe pendant mes expériences de vie`
-         },
-         {
-          title: 'Aisance dans les communications interpersonelles',
-          text: ` échanger avec les autres est toujours une meilleure manière de s'instruire.`
-         },
-         {
-            title: 'Esprit d équipe',
-            text: `compétence développée surtout à travers les projets académiques réalisés`
-           },
-         
-      ])
-      const [techskills] = useState([
-        {
-         title: 'administration Réseau',
-         text: `LINUX , CISCO , Serveur Windows , GNS3`
-        },
-        {
-         title: 'Traitement de Texte et Reporting',
-         text: ` Ms Word, Excel, PowerPoint, Canva`
-        },
-        {
-           title: 'Programmation Web |Frontend ',
-           text: `HTML/CSS, Java , React.js , GitHub, MATLAB`
-          },
-        
-     ])
-   return (
-     <div>
-         <section>
-             <div className="container">
-                 
-                <div className='textleft'> <h1>Experiences Professionnelles</h1></div>
-         
-                 <div className="cards">
-                     <div className='softskills'>
-                     {
-                         softskills.map((scard,i) =>(
- 
-                             <div key={i} className="card">
-                         <h3>
-                             {scard.title}
-                         </h3>
-                         <p>
-                            {scard.text}
-                            <button className='btn' onClick={() => handleDetailsClick(scard.title)} >
-                             details
-                            </button>
-                         </p>
-                         {modalOpen && selectedCard === scard.title && (
-      <div className="modal">
-        {scard.details1}
-        <p>{scard.details2}</p>
-        <button className="close-btn" onClick={() => setModalOpen(false)}>
-        <FaTimes size={20} style={{ color: "blue" }} /> 
-        </button>
-      </div>
-    )}
-                     </div>
-                         ))
-                         
-                         }
-                     </div>
-                     <div className='hardskills'>
- 
-                     <div className='textleft'> <h1>Compétences Humaines</h1></div>
-                     {
-                         hardskills.map((hcard,i) =>(
- 
-                             <div key={i} className="card">
-                         <h3>
-                             {hcard.title}
-                         </h3>
-                         <p>
-                            {hcard.text}
-                            
-                         </p>
-                     </div>
-                         ))
-                         
-                         }
-                         <div className='textleftsub'> <h1>Compétences Techniques</h1></div>
-                         {
-                         techskills.map((tcard,i) =>(
- 
-                             <div key={i} className="card">
-                         <h3>
-                             {tcard.title}
-                         </h3>
-                         <p>
-                            {tcard.text}
-                            
-                         </p>
-                     </div>
-                         ))
-                         
-                         }
-                     </div>
-                 </div>
-             </div>
-         </section>
- 
-     </div>
-   )
- }
+    };
 
-export default CompetencesContent
+    const [experiences] = useState([
+        {
+            title: 'GlobalID | Lausanne, Suisse',
+            text: 'Pentester — Audit sécurité outil biométrique (Août 2025 - Octobre 2025)',
+            details1: '- Réalisation d\'un White-box pentest sur le Venoscanner',
+            details2: '- Identification des vulnérabilités (failles applicatives, logs sensibles), scénarios d\'attaques (DOS, Fuzzing API, MITM), rédaction d\'un rapport de risques avec POC et recommandations correctives',
+        },
+        {
+            title: 'ADECCO.IESEG | Paris, France',
+            text: 'Intérimaire — Technicien informatique (Juillet 2023 - Août 2023)',
+            details1: '- Déploiement et mise en marche de 150 postes informatiques sur le campus universitaire',
+            details2: '- Installation, configuration et assignation des systèmes d\'exploitation — assistance technique — collaboration avec une équipe de cinq techniciens',
+        },
+    ]);
+
+    const [softskills] = useState([
+        { title: 'Autonomie', text: 'Capacité à mener des missions de manière indépendante, comme lors du pentest chez GlobalID.' },
+        { title: 'Apprentissage continu', text: 'Veille active sur la cybersécurité (DGSI, HackTheNews, LinkedIn), certifications régulières.' },
+        { title: 'Bonne communication', text: 'Rédaction de rapports techniques, échanges avec des équipes pluriculturelles en France, Suisse et Allemagne.' },
+        { title: 'Gestion du stress', text: 'Compétence développée lors des missions en environnement contraint et des projets académiques en délai serré.' },
+        { title: 'Esprit d\'équipe', text: 'Collaboration avec une équipe de cinq techniciens chez ADECCO, projets agiles à l\'ESAIP.' },
+    ]);
+
+    const [techskills] = useState([
+        { title: 'Protocoles & Analyse réseau', text: 'TCP/IP, HTTP, Wireshark, Nmap, Nessus, Kali Linux' },
+        { title: 'Virtualisation & Cloud', text: 'VMware, Hyper-V, Azure' },
+        { title: 'Pare-feux & Commutateurs', text: 'Cisco, Fortinet, pfSense' },
+        { title: 'Langages & Scripting', text: 'Java, JavaScript, PowerShell, MongoDB, SQL, HTML/CSS, Android, Node.js' },
+        { title: 'Gestion de projet', text: 'Git, Trello' },
+    ]);
+
+    return (
+        <div>
+            <section>
+                <div className="container">
+
+                    <div className='textleft'><h1>Expériences Professionnelles</h1></div>
+
+                    <div className="cards">
+                        <div className='softskills'>
+                            {experiences.map((scard, i) => (
+                                <div key={i} className="card">
+                                    <h3>{scard.title}</h3>
+                                    <p>
+                                        {scard.text}
+                                        <button className='btn' onClick={() => handleDetailsClick(scard.title)}>
+                                            Détails
+                                        </button>
+                                    </p>
+                                    {modalOpen && selectedCard === scard.title && (
+                                        <div className="modal">
+                                            {scard.details1}
+                                            <p>{scard.details2}</p>
+                                            <button className="close-btn" onClick={() => setModalOpen(false)}>
+                                                <FaTimes size={20} style={{ color: "blue" }} />
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className='hardskills'>
+                            <div className='textleft'><h1>Compétences Humaines</h1></div>
+                            {softskills.map((hcard, i) => (
+                                <div key={i} className="card">
+                                    <h3>{hcard.title}</h3>
+                                    <p>{hcard.text}</p>
+                                </div>
+                            ))}
+
+                            <div className='textleftsub'><h1>Compétences Techniques</h1></div>
+                            {techskills.map((tcard, i) => (
+                                <div key={i} className="card">
+                                    <h3>{tcard.title}</h3>
+                                    <p>{tcard.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default CompetencesContent;
