@@ -1,0 +1,92 @@
+.lep-container {
+  max-width: 860px;
+  width: 100%;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  width: 100%;
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.lep-title-block {
+  margin-bottom: 1rem;
+}
+
+.lep-title-block h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #818cf8;
+  border-left: 4px solid #4f46e5;
+  padding-left: 0.75rem;
+}
+
+.lep-intro {
+  font-size: 0.98rem;
+  color: #94a3b8;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.lep-card {
+  background: #1a1a2e;
+  border: 1px solid #2d2d4e;
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.lep-card:hover {
+  border-color: #4f46e5;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.15);
+}
+
+.lep-card-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #2d2d4e;
+}
+
+.lep-card-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.4rem;
+}
+
+.lep-badge {
+  font-size: 0.85rem;
+  color: #818cf8;
+  font-weight: 500;
+}
+
+.lep-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.lep-section h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c7d2fe;
+  margin-bottom: 0.5rem;
+}
+
+.lep-section p {
+  font-size: 0.93rem;
+  color: #94a3b8;
+  line-height: 1.75;
+}
+
+@media screen and (max-width: 768px) {
+  .lep-card {
+    padding: 1.2rem 1rem;
+  }
+}
