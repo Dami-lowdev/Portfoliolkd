@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import { FaTimes } from "react-icons/fa";
 import "./CompetencesContentsStyles.css";
 
+import LogoGlobalID from "../assets/global id Logo.jpg";
+import LogoIESEG    from "../assets/logo Ieseg.jpg";
+
 const experiences = [
     {
         title: 'GlobalID | Lausanne, Suisse',
+        logo: LogoGlobalID,
         text: 'Pentester — Audit sécurité outil biométrique (Août 2025 - Octobre 2025)',
         details1: '- Réalisation d\'un White-box pentest sur le Venoscanner',
         details2: '- Identification des vulnérabilités (failles applicatives, logs sensibles), scénarios d\'attaques (DOS, Fuzzing API, MITM), rédaction d\'un rapport de risques avec POC et recommandations correctives.',
     },
     {
         title: 'ADECCO.IESEG | Paris, France',
+        logo: LogoIESEG,
         text: 'Intérimaire — Technicien informatique (Juillet 2023 - Août 2023)',
         details1: '- Déploiement et mise en marche de 150 postes informatiques sur le campus universitaire',
         details2: '- Installation, configuration et assignation des systèmes d\'exploitation — assistance technique — collaboration avec une équipe de cinq techniciens.',
@@ -75,7 +80,12 @@ const CompetencesContent = () => {
                             <div className="softskills" style={{ flex: '1 1 100%' }}>
                                 {experiences.map((exp, i) => (
                                     <div key={i} className="card">
-                                        <h3>{exp.title}</h3>
+                                        <div className="card-header">
+                                            {exp.logo && (
+                                                <img src={exp.logo} alt={exp.title} className="institution-logo" />
+                                            )}
+                                            <h3>{exp.title}</h3>
+                                        </div>
                                         <p>
                                             {exp.text}
                                             <button className='btn' onClick={() => handleDetailsClick(exp.title)}>

@@ -87,6 +87,23 @@ section {
   font-size: 0.8rem;
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.institution-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
 .modal {
   background: #1e1e3a;
   border: 1px solid #4f46e5;

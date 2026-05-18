@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { FaTimes } from "react-icons/fa";
 import "./FormationContentsStyles.css";
 
+import LogoESAIP      from "../assets/logo_ESAIP_INGENIEUR_RVB_2016-250.jpg";
+import LogoReutlingen from "../assets/Hochschule reutlingen logo.jpg";
+import LogoCisco      from "../assets/ciscologo.png";
+import LogoAzure      from "../assets/AI900logo.png";
+
 const CREDLY_AZURE    = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
 const CREDLY_FORTINET = 'https://www.credly.com/badges/8b71f240-660a-4b4c-9361-4f3717b1c74d/public_url';
 const CREDLY_CCNA     = 'https://www.credly.com/badges/434ba043-e2c1-4601-a6aa-3f370f69c002/public_url';
@@ -12,6 +17,60 @@ const VerifyBtn = ({ href, label = 'Vérifier sur Credly' }) => (
     </a>
 );
 
+const formations = [
+    {
+        title: 'ESAIP | Angers, France',
+        logo: LogoESAIP,
+        text: 'Cycle Ingénieur | Majeur Cybersécurité (Septembre 2022 - Septembre 2026)',
+        details1: '- Cryptographie, réseaux informatiques, Linux OS, Windows OS, Active Directory',
+        details2: '- Gestion de projet, initiation à la recherche scientifique, communication, mathématiques',
+    },
+    {
+        title: 'Hochschule Reutlingen | Reutlingen, Allemagne',
+        logo: LogoReutlingen,
+        text: 'Computer Science — Séjour ERASMUS (Mars 2024 - Juillet 2024)',
+        details1: '- Cloud computing, génie logiciel',
+        details2: '- Business Consulting, Gestion de Projet',
+    },
+];
+
+const certifications = [
+    {
+        title: 'Azure AI Fundamentals (AI-900)',
+        logo: LogoAzure,
+        text: 'Certification délivrée par Microsoft',
+        details: <VerifyBtn href={CREDLY_AZURE} />,
+    },
+    {
+        title: 'Fortinet FortiGate 7.4 Operator',
+        logo: null,
+        text: 'Certification délivrée par Fortinet',
+        details: <VerifyBtn href={CREDLY_FORTINET} />,
+    },
+    {
+        title: 'CCNA : Introduction to Networks',
+        logo: LogoCisco,
+        text: 'Certification délivrée par Cisco',
+        details: <VerifyBtn href={CREDLY_CCNA} />,
+    },
+    {
+        title: 'Mooc SecNumacadémie — ANSSI',
+        logo: null,
+        text: 'Formation cybersécurité délivrée par l\'ANSSI',
+        details: (
+            <a href="/anssi-secnum.pdf" target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
+                Voir l'attestation
+            </a>
+        ),
+    },
+    {
+        title: 'Profil TryHackMe',
+        logo: null,
+        text: 'Plateforme de hacking éthique et de CTF',
+        details: <VerifyBtn href="https://tryhackme.com/p/Dami-lowdev" label="Voir le profil" />,
+    },
+];
+
 const FormationContents = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
@@ -20,53 +79,6 @@ const FormationContents = () => {
         setSelectedCard(title);
         setModalOpen(true);
     };
-
-    const formations = [
-        {
-            title: 'ESAIP | Angers, France',
-            text: 'Cycle Ingénieur | Majeur Cybersécurité (Septembre 2022 - Septembre 2026)',
-            details1: '- Cryptographie, réseaux informatiques, Linux OS, Windows OS, Active Directory',
-            details2: '- Gestion de projet, initiation à la recherche scientifique, communication, mathématiques',
-        },
-        {
-            title: 'Hochschule Reutlingen | Reutlingen, Allemagne',
-            text: 'Computer Science — Séjour ERASMUS (Mars 2024 - Juillet 2024)',
-            details1: '- Cloud computing, génie logiciel',
-            details2: '- Business Consulting, Gestion de Projet',
-        },
-    ];
-
-    const certifications = [
-        {
-            title: 'Azure AI Fundamentals (AI-900)',
-            text: 'Certification délivrée par Microsoft',
-            details: <VerifyBtn href={CREDLY_AZURE} />,
-        },
-        {
-            title: 'Fortinet FortiGate 7.4 Operator',
-            text: 'Certification délivrée par Fortinet',
-            details: <VerifyBtn href={CREDLY_FORTINET} />,
-        },
-        {
-            title: 'CCNA : Introduction to Networks',
-            text: 'Certification délivrée par Cisco',
-            details: <VerifyBtn href={CREDLY_CCNA} />,
-        },
-        {
-            title: 'Mooc SecNumacadémie — ANSSI',
-            text: 'Formation cybersécurité délivrée par l\'ANSSI (Agence Nationale de la Sécurité des Systèmes d\'Information)',
-            details: (
-                <a href="/anssi-secnum.pdf" target="_blank" rel="noreferrer" className="btn" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
-                    Voir l'attestation
-                </a>
-            ),
-        },
-        {
-            title: 'Profil TryHackMe',
-            text: 'Plateforme de hacking éthique et de CTF',
-            details: <VerifyBtn href="https://tryhackme.com/p/Dami-lowdev" label="Voir le profil" />,
-        },
-    ];
 
     return (
         <div>
@@ -79,7 +91,12 @@ const FormationContents = () => {
                         <div className='softskills'>
                             {formations.map((scard, i) => (
                                 <div key={i} className="card">
-                                    <h3>{scard.title}</h3>
+                                    <div className="card-header">
+                                        {scard.logo && (
+                                            <img src={scard.logo} alt={scard.title} className="institution-logo" />
+                                        )}
+                                        <h3>{scard.title}</h3>
+                                    </div>
                                     <p>
                                         {scard.text}
                                         <button className='btn' onClick={() => handleDetailsClick(scard.title)}>
@@ -103,7 +120,12 @@ const FormationContents = () => {
                             <div className='textleft'><h1>Certifications</h1></div>
                             {certifications.map((hcard, i) => (
                                 <div key={i} className="card">
-                                    <h3>{hcard.title}</h3>
+                                    <div className="card-header">
+                                        {hcard.logo && (
+                                            <img src={hcard.logo} alt={hcard.title} className="institution-logo" />
+                                        )}
+                                        <h3>{hcard.title}</h3>
+                                    </div>
                                     <p>{hcard.text}</p>
                                     {hcard.details}
                                 </div>
